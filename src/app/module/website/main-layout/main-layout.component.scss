@@ -1,0 +1,11 @@
+.scroll{
+  max-height: 650px;
+  overflow-y: hidden;
+}
+.scroll:hover{
+  overflow-y: scroll;
+}
+.gradient{
+  background: #EFF1FE;
+  background: radial-gradient(circle,rgba(239, 241, 254, 1) 0%, rgba(176, 224, 244, 1) 100%);
+}

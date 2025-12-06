@@ -1,0 +1,136 @@
+.background{
+  background-image: url('assets/images/subscripcion.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#login-form{
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #64748B;
+  padding: 48px 16px 48px 16px;
+}
+
+#login-form .row{
+  gap: 20px;
+}
+
+#login-form h4{
+  font-size: 20px;
+  color:#EF4E00;
+}
+
+#login-form p{
+  font-size: 14px;
+  color: #010101;
+  font-weight: 400;
+  margin: 0;
+}
+
+#login-form .float-group label{
+  font-size: 14px;
+  color: #010101;
+  font-weight: 600;
+}
+
+.float-group{
+  position: relative;
+}
+
+.float-group a{
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input{
+  background-color: #E8E8E8;
+  border: 2px solid #E8E8E8;
+  border-radius: 5px;
+}
+
+input::placeholder{
+  color: #B3B3B3;
+  font-size: 14px;
+}
+
+#login-form span{
+  font-size: 14px;
+  color: #000000;
+  font-weight: light;
+}
+
+#login-form a{
+  font-size: 14px;
+  color: #183A9C;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div > .btn{
+  width: 100%;
+  height: 44px;
+  background-color: #EF4E00;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.input-group-append{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+
+.input-group-append button{
+  background-color: transparent;
+  border: none;
+  color: #000;
+}
+
+.errors{
+  color: red !important;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.success{
+  color: green !important;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0 10px;
+}
+
+input.error{
+  border-color: red;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.buttons button {
+    min-height: 0; /* Previene problemas de overflow */
+    cursor: pointer;
+    border: 2px solid #D8E0F0;
+    border-radius: 4px;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    min-height: 43px;
+}
+
+.buttons button.selected{
+  border: 3px solid #F9D026;
+}
+
+.buttons button img{
+  width: 100%;
+  height: 100%;
+}

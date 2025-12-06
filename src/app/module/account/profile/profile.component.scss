@@ -1,0 +1,153 @@
+.card{
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  width: 100%;
+  min-height: 300px;
+}
+
+.full{
+  height: 100%;
+}
+
+.pd-2{
+  padding: 0 20px;
+}
+
+#login-form,
+#payment-form,
+#password-form{
+  width: 100%;
+  padding: 24px 16px 24px 16px;
+}
+
+#login-form .row,
+#payment-form .row,
+#password-form .row{
+  gap: 7px;
+}
+
+#login-form h4,
+#payment-form h4,
+#password-form{
+  font-size: 20px;
+  font-weight: bolder;
+  color: #183A9C;
+}
+
+#login-form p{
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 400;
+  margin: 0;
+}
+
+.float-group label{
+  font-size: 14px;
+  color: #010101;
+  font-weight: 600;
+}
+
+.float-group{
+  position: relative;
+}
+
+.float-group a{
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+input,
+select{
+  border-radius: 5px;
+  color: #B3B3B3;
+  background-color: #E5E5E5;
+}
+input::placeholder,
+select::placeholder{
+  color: #B3B3B3;
+}
+
+#login-form span{
+  font-size: 14px;
+  color: #000000;
+  font-weight: light;
+}
+
+div > .btn{
+  height: 44px;
+  min-width: 150px;
+  background-color: #EF4E00;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.input-group-append{
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+
+.input-group-append button{
+  background-color: transparent;
+  border: none;
+  color: #000;
+}
+
+.register{
+  margin-top: 5px;
+}
+
+span.errors{
+  color: red !important;
+  font-weight: lighter;
+  margin: 0;
+  padding: 0 10px;
+}
+
+input.error{
+  border-color: red;
+}
+
+.btn-container{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin: 0;
+}
+
+.avatar{
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: #3A86CC;
+}
+
+.info{
+
+}
+
+.name{
+  font-size: 20px !important;
+  color: #010101;
+}
+
+.company{
+  font-size: 16px !important;
+  color: #010101;
+}
+.input-group-append{
+  top: 20px;
+}
+.success{
+  color: #28A745;
+}

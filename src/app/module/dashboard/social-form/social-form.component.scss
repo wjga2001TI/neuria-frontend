@@ -1,0 +1,69 @@
+.scroll{
+  max-height: 650px;
+  overflow-y: scroll;
+}
+
+.card{
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  width: 100%;
+  padding: 20px;
+  gap: 5px;
+}
+.info .name{
+  font-size: 22px !important;
+  font-weight: bold;
+  color: #010101;
+}
+
+.info .company{
+  font-size: 14px !important;
+  color: #B3B3B3;
+}
+.input-group-append{
+  top: 20px;
+}
+.avatar{
+  height: auto !important;
+}
+.btn{
+  height: 44px;
+  width: 100%;
+  background-color: #EF4E00;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.float-group label{
+  font-size: 14px;
+  color: #010101;
+  font-weight: 600;
+}
+
+input{
+  border-radius: 5px;
+  background-color: #E5E5E5;
+  color: #B3B3B3;
+}
+input::placeholder{
+  color: #B3B3B3;
+  font-size: 14px;
+}
+.note{
+  color: #B3B3B3;
+  font-size: 14px;
+}
+i.fa{
+  font-size: 40px;
+  color: #FFFFFF;
+}
+.icon{
+  background-color: #183A9C;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

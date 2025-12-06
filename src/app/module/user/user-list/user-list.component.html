@@ -1,0 +1,92 @@
+<ng-container>
+  <app-loader [loading]="loading"></app-loader>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card blue">
+        <form [formGroup]="searchForm" id="search-form">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="info">
+                  <span class="title">Lista de Usuarios</span>
+                  <br>
+                  <span class="subtitle">Lista de usuarios totales registrados en el APP</span>
+                </div>
+            </div>
+            <div class="col-md-7 centered">
+              <div class="float-group">
+                <i class="fa fa-search"></i>
+                <input inputTrim formControlName="name" type="text" id="search"
+                class="form-control" placeholder="Buscar" (change)="getUsers(1)">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="card no-pd glass">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="blue border-l">Usuario</th>
+              <th class="blue">Registro</th>
+              <th class="blue">Licencia</th>
+              <th class="blue">Vencimiento</th>
+              <th class="blue border-r">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users; let i = index" class="user">
+              <td>
+                <div class="flex in-row white">
+                  <div class="avatar"></div>
+                  <div class="flex in-column ml-1">
+                    <span class="name">{{ user.name }}</span>
+                    <span class="company">{{ user.company }}</span>
+                  </div>
+                </div>
+              </td>
+              <td class="date">{{ user.start_date }}</td>
+              <td>
+                <span class="status" [ngClass]="{ 'warning': user.active, 'danger': !user.active }"
+                >{{ user.active ? 'Activo' : 'Inactivo' }}</span>
+                <span class="status space primary">Plan Único</span>
+              </td>
+              <td class="date">{{ user.end_subscription || '-' }}</td>
+              <td>
+                <i class="fa fa-dollar text-success"
+                [routerLink]="'/user/'+user.id+'/subscription'"></i>
+                <!-- <i class="fa fa-trash text-primary space"
+                (click)="deleteUser(user.id)"></i> -->
+                <i class="fa fa-pencil text-primary space"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="card centered">
+        <div class="pages">
+          <span>Página {{page}} de {{totalPages}}</span>
+        </div>
+        <div class="buttons">
+          <button class="btn pagination"
+          (click)="getUsers(this.page-1)">
+            Anterior
+          </button>
+          <button class="btn pagination"
+          (click)="getUsers(this.page+1)">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

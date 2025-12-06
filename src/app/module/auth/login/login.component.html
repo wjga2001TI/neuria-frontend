@@ -1,0 +1,75 @@
+<app-loader [loading]="loading"></app-loader>
+<div class="wrapper background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7"></div>
+      <div class="col-lg-4 my-auto">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" id="login-form" class="glass">
+          <div class="row">
+            <div class="col-12 text-center">
+              <img src="assets/images/logo.png" class="logo">
+            </div>
+              <div class="col-12 text-left mt-3">
+                  <h4>Iniciar Sesión</h4>
+                  <p>Bienvenido de nuevo. Introduce tus credenciales para acceder a tu cuenta.</p>
+              </div>
+
+              <div class="col-12">
+                  <div class="float-group">
+                    <label for="email">Correo electrónico</label>
+                      <input inputTrim formControlName="email"
+                      type="text" id="email" class="form-control" placeholder="Correo electrónico"
+                      [ngClass]="{'error': unauthorized}">
+                  </div>
+                  <div *ngIf="email?.dirty || email?.touched" class="error-message">
+                    <span *ngIf="email?.errors?.['required']" class="errors">
+                      El correo es requerido.
+                    </span>
+                  </div>
+              </div>
+
+              <div class="col-12">
+                  <div class="float-group">
+                    <label for="password">Contraseña</label>
+                    <a routerLink="/auth/recover-password">¿Olvidó su Contraseña?</a>
+                      <input formControlName="password" [type]="hidePass ? 'password' : 'text'"
+                      class="form-control" id="password" placeholder="Tu Contraseña"
+                      [ngClass]="{'error': unauthorized}">
+                      <span class="input-group-append">
+                          <button class="input-group-text show-password" (click)="showPassword()">
+                              <i *ngIf="hidePass" class="fa fa-eye"></i>
+                              <i *ngIf="!hidePass" class="fa fa-eye-slash"></i>
+                          </button>
+                      </span>
+                      <div *ngIf="password?.dirty || password?.touched" class="error-message">
+                        <span *ngIf="password?.errors?.['required']" class="errors">
+                          La contraseña es requerida.
+                        </span>
+                      </div>
+                  </div>
+              </div>
+
+              <p class="errors" *ngIf="unauthorized"
+              >Datos incorrectos. Por favor verifique su correo y contraseña.</p>
+
+              <label class="custom-checkbox">
+                <input type="checkbox"> <span>Mantenme registrado</span>
+              </label>
+
+              <div class="col-12">
+                <button type="submit" type="submit" class="btn btn-lg btn-block"
+                [disabled]="isSubmit">
+                  Continuar
+                </button>
+                <div class="text-center register">
+                    <span>¿Aún no tiene una cuenta? <a routerLink="/auth/register">Registrese aquí</a></span>
+                </div>
+              </div>
+
+          </div>
+        </form>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>

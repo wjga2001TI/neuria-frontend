@@ -1,0 +1,654 @@
+<ng-container>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card" *ngIf="social && social.name == 'Facebook'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para crear una nueva publicación en esta red social.
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="caption">Texto del post (message)</label>
+                <input inputTrim formControlName="caption" type="text" id="caption"
+                class="form-control mt-1" placeholder="Video URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_url">Video URL Pública MP4 H.264 ≤1080p (video_url)</label>
+                <input inputTrim formControlName="video_url" type="text" id="video_url"
+                class="form-control mt-1" placeholder="ID de la página">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="url">Link URL Pública HTTP/HTTPS (link_url)</label>
+                <input inputTrim formControlName="url" type="text" id="url"
+                class="form-control mt-1" placeholder="Link URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imágenes .jpg / .png 720x720px (≤ 2mb). Máximo 10 Imágenes (image_url(s))
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button class="btn file-btn"
+              (click)="openFiles()">
+                Agregar imagenes
+              </button>
+            </div>
+
+            <div class="images">
+              <div class="col-md-3 mt-3 inline" *ngFor="let item of [1,1,1,1,1,1,1,1,1,1]">
+                <img src="../../../../assets/images/image.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Instagram Business'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="caption">Caption con hashtags incluidos (caption)</label>
+                <input inputTrim formControlName="caption" type="text" id="caption"
+                class="form-control mt-1" placeholder="Texto plano (≤ 2,200 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_url">Video URL MP4 vertical 9:16, máx 650MB (video_url)</label>
+                <input inputTrim formControlName="video_url" type="text" id="video_url"
+                class="form-control mt-1" placeholder="Video URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_cover_url">Video URL (cover_url)</label>
+                <input inputTrim formControlName="video_cover_url" type="text" id="video_cover_url"
+                class="form-control mt-1" placeholder="URL del video a publicar">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imágenes .jpg / .png 1080x1080px / 1080x1350px / 1350x1080px (≤ 2mb). No soporta carrusel. (image_url)
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button class="btn file-btn"
+              (click)="openFiles()">
+                Agregar imagenes
+              </button>
+            </div>
+
+            <div class="images">
+              <div class="col-md-12 mt-3 inline">
+                <img src="../../../../assets/images/image-big.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Linkedin'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access Token (OAuth)</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="caption">Texto del Post (text)</label>
+                <input inputTrim formControlName="caption" type="text" id="caption"
+                class="form-control mt-1" placeholder="Texto plano (≤ 3,000 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_url">Video URL MP4/MOV ≤200MB (video_url)</label>
+                <input inputTrim formControlName="video_url" type="text" id="video_url"
+                class="form-control mt-1" placeholder="Video URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="url">Link URL HTTP/HTTPS (link_url)</label>
+                <input inputTrim formControlName="url" type="text" id="url"
+                class="form-control mt-1" placeholder="Link URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imágenes .jpg / .png (≤ 2mb). (image_url(s))
+              </span>
+            </div>
+
+            <div class="images">
+              <div class="col-md-3 mt-3 inline" *ngFor="let item of [1,1,1,1,1,1,1,1,1]">
+                <img src="../../../../assets/images/image.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Youtube'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="title">Título del Video (title)</label>
+                <input inputTrim formControlName="title" type="text" id="title"
+                class="form-control mt-1" placeholder="Texto corto (≤ 100 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="description">Descripción del Video (description)</label>
+                <input inputTrim formControlName="description" type="text" id="description"
+                class="form-control mt-1" placeholder="Texto plano (≤ 5,000 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_url">Video URL MP4 H.264 ≤000MB (video_url)</label>
+                <input inputTrim formControlName="video_url" type="text" id="video_url"
+                class="form-control mt-1" placeholder="Video URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="tags">Etiquetas (tags)</label>
+                <input inputTrim formControlName="tags" type="text" id="tags"
+                class="form-control mt-1" placeholder="Palabras clave separadas con “,”">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imagen miniatura .jpg / .png (≤ 2mb). (thumbnail_url)
+              </span>
+            </div>
+
+            <div class="images">
+              <div class="col-md-12 mt-3 inline">
+                <img src="../../../../assets/images/image-big.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Wordpress'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="title">Título del post (post_title)</label>
+                <input inputTrim formControlName="title" type="text" id="title"
+                class="form-control mt-1" placeholder="Texto Corto">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="description">Cuerpo del post (post_content)</label>
+                <input inputTrim formControlName="description" type="text" id="description"
+                class="form-control mt-1" placeholder="Texto HTML/plano">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imagen miniatura .jpg / .png (≤ 2mb). (featured_media_url)
+              </span>
+            </div>
+
+            <div class="images">
+              <div class="col-md-12 mt-3 inline">
+                <img src="../../../../assets/images/image-big.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Tiktok'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="caption">Texto que acompaña video (caption)</label>
+                <input inputTrim formControlName="caption" type="text" id="caption"
+                class="form-control mt-1" placeholder="Texto plano (≤ 2,200 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_url">Video principal MP4 vertical 9:16 (video_url)</label>
+                <input inputTrim formControlName="video_url" type="text" id="video_url"
+                class="form-control mt-1" placeholder="URL del Video">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imagen de cover .jpg / .png (≤ 2mb). (cover_url)
+              </span>
+            </div>
+
+            <div class="images">
+              <div class="col-md-12 mt-3 inline">
+                <img src="../../../../assets/images/image-big.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'X'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="caption">Texto del post (text)</label>
+                <input inputTrim formControlName="caption" type="text" id="caption"
+                class="form-control mt-1" placeholder="Texto plano (≤ 280 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="video_url">Video URL MP4 ≤140s (video_url)</label>
+                <input inputTrim formControlName="video_url" type="text" id="video_url"
+                class="form-control mt-1" placeholder="Link URL">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="description">Descripción accesible (alt_text)</label>
+                <input inputTrim formControlName="description" type="text" id="description"
+                class="form-control mt-1" placeholder="Texto plano">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imagen de cover .jpg / .png (≤ 2mb). (media_urls)
+              </span>
+            </div>
+
+            <div class="images">
+              <div class="col-md-3 mt-3 inline" *ngFor="let item of [1,1,1,1]">
+                <img src="../../../../assets/images/image.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Google My Business'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="post_date">Fecha del post (postdate)</label>
+                <input inputTrim formControlName="post_date" type="datetime-local" id="post_date"
+                class="form-control mt-1" placeholder="AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="caption">Texto del post (summary)</label>
+                <input inputTrim formControlName="caption" type="text" id="caption"
+                class="form-control mt-1" placeholder="Texto plano (≤ 1,500 chars)">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="button_text">Texto del botón de accioón (cta.type)</label>
+                <input inputTrim formControlName="button_text" type="text" id="button_text"
+                class="form-control mt-1" placeholder="Texto del botón">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="publick_link">Enlace CTA (cta.url)</label>
+                <input inputTrim formControlName="publick_link" type="text" id="publick_link"
+                class="form-control mt-1" placeholder="URL pública">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="event_date">Fechas de evento (event.start/end)</label>
+                <input inputTrim formControlName="event_date" type="datetime" id="event_date"
+                class="form-control mt-1" placeholder="Fecha del evento AAAA-MM-DD">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="location_id">Dónde publicar (location_id)</label>
+                <input inputTrim formControlName="location_id" type="text" id="location_id"
+                class="form-control mt-1" placeholder="ID ubicación">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Imagen miniatura .jpg / .png 720x540px (≤ 2mb). (image_url)
+              </span>
+            </div>
+
+            <div class="images">
+              <div class="col-md-12 mt-3 inline">
+                <img src="../../../../assets/images/image-big.png" >
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="publish(socialForm.value)">
+                Publicar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <input type="file" id="files" (change)="loadFiles($event)"
+  accept="image/png, image/jpeg" multiple>
+</ng-container>

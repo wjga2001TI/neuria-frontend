@@ -1,0 +1,195 @@
+.scroll{
+  max-height: 550px;
+  overflow-y: scroll;
+}
+
+.card{
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  width: 100%;
+  padding: 20px;
+}
+
+.no-pd{
+  padding: 0 !important;
+}
+
+.border-l{
+  border-radius: 12px 0 0 0;
+  padding-left: 20px !important;
+}
+
+.border-r{
+  border-radius: 0 12px 0 0;
+}
+
+.full{
+  height: 100%;
+}
+
+.pd-2{
+  padding: 0 20px;
+}
+
+.card .title{
+  font-size: 18px;
+  font-weight: bolder;
+  font-weight: bolder;
+}
+
+.card .subtitle{
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 400;
+  margin: 0;
+}
+
+.float-group label{
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 600;
+}
+
+.float-group{
+  position: relative;
+  width: 100%;
+}
+
+.float-group a{
+  position: absolute;
+  right: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.float-group i{
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
+
+input{
+  border: 2px solid #64748B;
+  border-radius: 5px;
+  width: 100% !important;
+  padding-left: 40px;
+  border: 2px solid #D8E0F0;
+  outline: none;
+}
+
+input::placeholder{
+  font-weight: bolder;
+}
+
+.buttons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #272727;
+}
+
+.btn.pagination{
+  font-weight: bolder;
+  background-color: #D8E0F0;
+  padding: 6px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+.pages span{
+  color: #272727 !important;
+  font-weight: bolder;
+}
+
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 12px 24px;
+}
+
+table *{
+  border: none;
+}
+
+table .company,
+table .date{
+  font-size: 14px;
+  color: #667085;
+}
+
+table .name{
+  font-size: 16px;
+  color: #101828;
+  font-weight: bold;
+}
+
+table .status{
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 5px 10px;
+}
+
+.status.success{
+  background-color: #28A745;
+  color: #FFFFFF;
+}
+
+.status.pending{
+  background-color: #E5E5E5;
+  color: #272727;
+}
+
+.status.danger{
+  background-color: #E84242;
+  color: #FFFFFF;
+}
+
+table i{
+  font-size: 20px;
+  cursor: pointer;
+}
+
+table .space{
+  margin-left: 10px;
+}
+.avatar{
+  width: 20px;
+  height: 20px;
+}
+.flex{
+  display: flex;
+}
+.in-row{
+  flex-direction: row;
+}
+.in-column{
+  flex-direction: column;
+}
+.ml-1{
+  margin-left: 10px;
+}
+.image{
+  width: 40px;
+  height: 40px;
+  background-color: #D9D9D9;
+  border-radius: 5px;
+}
+.inline{
+  display: inline-block;
+}
+td{
+  background-color: transparent !important;
+  padding-top: 20px !important;
+}
+
+.white{
+  background-color: #FFFFFF !important;
+  padding: 20px;
+  border-radius: 12px;
+}
+.fa{
+  color: #183A9C !important;
+}

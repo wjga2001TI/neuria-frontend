@@ -1,0 +1,71 @@
+<app-loader [loading]="loading"></app-loader>
+<div class="wrapper background">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7"></div>
+      <div class="col-md-4 my-auto">
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" id="login-form" class="glass">
+          <div class="row">
+            <div class="col-12 text-center">
+                <img src="assets/images/logo.png" class="logo">
+              </div>
+
+              <div class="col-12 text-left mt-3">
+                  <h4>Registrar Pagos</h4>
+                  <p>Por favor, seleccione un método de pago y realice el pago para crear su cuenta y proceder a terminar el proceso de registro de cuenta.</p>
+              </div>
+
+              <div class="col-12">
+                  <div class="float-group">
+                    <label for="reference">Correo electrónico de transferencia</label>
+                      <input inputTrim formControlName="reference"
+                      type="text" id="reference" class="form-control error" placeholder="correo@gmail.com"
+                      [ngClass]="{'error': reference?.invalid && (reference?.dirty || reference?.touched)}">
+                      <div *ngIf="reference?.invalid && (reference?.dirty || reference?.touched)" class="error-message">
+                        <span *ngIf="reference?.errors?.['required']" class="errors">
+                          El correo electrónico es requerido.
+                        </span>
+                        <span *ngIf="reference?.errors?.['reference']" class="errors">
+                          Por favor ingresa un correo electrónico válido.
+                        </span>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-md-12 buttons">
+                <button [class]="{'selected': i == 0}"
+                *ngFor="let method of paymentMethods; let i = index"
+                (click)="selectPaymentMethod($event, method)">
+                  <img [src]="'assets/images/'+method.icon+'.png'" alt="Paypal">
+                </button>
+              </div>
+
+              <div *ngIf="payment_method_id?.invalid && (payment_method_id?.dirty || payment_method_id?.touched)" class="error-message">
+                  <span *ngIf="payment_method_id?.errors?.['required']" class="errors">
+                    Seleccione un metodo de pago.
+                  </span>
+              </div>
+
+              <div class="col-12 text-left" *ngIf="method">
+                  <p>
+                    Correo electrónico a pagar <br>
+                    {{method.account}}
+                  </p>
+              </div>
+
+              <p *ngIf="success"
+              class="text-success">Pago registrado.</p>
+
+              <div class="col-12">
+                <button type="submit" type="submit"
+                class="btn btn-lg btn-block" [disabled]="isSubmit">
+                  Continuar
+                </button>
+              </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>

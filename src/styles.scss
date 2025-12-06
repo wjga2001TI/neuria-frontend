@@ -1,0 +1,134 @@
+@import 'assets/lib/phone-number-validation/build/css/demo.css';
+@import 'assets/lib/phone-number-validation/build/css/intlTelInput.css';
+
+/* You can add global styles to this file, and also import other style files */
+/* Definición de la fuente */
+@font-face {
+  font-family: 'Nunito';
+  src: url('./assets/fonts/Nunito/Nunito-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Aplicación global */
+body {
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden !important;
+}
+
+.glass{
+ background: rgba(255, 255, 255, .3) !important;
+ -webkit-backdrop-filter: blur(5px) !important;
+ backdrop-filter: blur(5px) !important;
+ border: 2px solid rgb(255, 255, 255) !important;
+}
+
+.blue{
+  background-color: #183A9C !important;
+  color: #FFFFFF !important;
+  border: none !important;
+}
+
+.blue span{
+  color: #FFFFFF !important;
+}
+
+form .logo{
+  width: 270px;
+  height: 50px;
+}
+
+.wrapper{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #F4F9FD;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+}
+.centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-icon{
+  font-size: 18px;
+  margin-right: 5px;
+  cursor: pointer;
+  color: #183A9C;
+}
+.day-number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #272727;
+}
+/* ESTILOS PARA CUADRÍCULA AZUL EN CALENDARIO */
+.calendar {
+    border: 2px solid #D8E0F0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.calendar-header {
+    border-bottom: 2px solid #D8E0F0;
+}
+
+.calendar-header div {
+  text-align: left;
+  border-right: 2px solid #D8E0F0;
+  font-weight: bold;
+  font-size: 12px !important;
+  margin-left: 10px;
+}
+
+.calendar-header div:last-child {
+    border-right: none;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+}
+
+.day {
+    min-height: 100px;
+    background-color: white;
+    border-right: 2px solid #D8E0F0;
+    border-bottom: 2px solid #D8E0F0;
+    padding-left: 10px;
+    position: relative;
+}
+
+/* Eliminar bordes derechos de la última columna */
+.day:nth-child(7n) {
+    border-right: none;
+}
+
+/* Eliminar bordes inferiores de la última fila */
+/* .day:nth-last-child(-n+7) {
+    border-bottom: none;
+} */
+
+.day-number {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+    padding: 5px;
+}
+
+.empty {
+    background-color: #e3f2fd;
+}
+
+/* Estilo para días con publicaciones */
+.day.has-event {
+    background-color: #e3f2fd;
+}

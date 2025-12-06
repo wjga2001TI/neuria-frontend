@@ -1,0 +1,50 @@
+<ng-container *ngIf="user">
+  <div class="row scroll">
+    <div class="col-md-12 mt-3">
+      <div class="card blue">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="info">
+                  <span class="title">Hola, {{user.name}}</span>
+                  <br>
+                  <span class="subtitle">Notificaciones de eventos en tu cuenta y publicaciones</span>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-12 mt-3" *ngFor="let item of [1,1,1,1,1,1]; let i = index">
+      <div class="card glass">
+        <div class="row">
+          <div class="col-md-1 flex centered">
+            <i class="fa"
+            [ngClass]="{
+              'fa-check': i % 2 == 0,
+              'fa-warning': i % 2 !== 0,
+              'success': i % 2 == 0,
+              'warning': i % 2 !== 0
+            }"
+            ></i>
+            <div class="icon">
+            <i [class]="'fa fa-instagram ml-2'"></i>
+          </div>
+          </div>
+            <div class="col-md-11">
+              <div class="info">
+                  <span class="title" [ngClass]="{'success': i % 2 == 0, 'warning': i % 2 !== 0}">
+                    {{ i % 2 == 0 ? '¡Publicación en FACEBOOK fue creada con éxito!' : 'Tu suscripción al plan Premium vence en 7 días.'}}
+                  </span>
+                  <br>
+                  <span class="subtitle">
+                    {{ i % 2 == 0 ? 'El post creado para publicarse el dia 00 Ene 2025 ha sido creado con éxito y ya lo puedes ver en tu cuenta de Facebook.' : 'Tu suscripción vence en 7 días, renueva para seguir disfrutando de los beneficios de usar nuestra app.'}}
+                    <a routerLink="/account/subscription" *ngIf="i % 2 !== 0">
+                      Haz clic aquí para renovar.
+                    </a>
+                  </span>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

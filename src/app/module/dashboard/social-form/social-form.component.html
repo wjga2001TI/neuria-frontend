@@ -1,0 +1,590 @@
+<ng-container>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+
+      <div class="card" *ngIf="social && social.name == 'Facebook'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access token de usuario</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">ID de la página de Facebook</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="ID de la página">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="name">Nombre de la página</label>
+                <input inputTrim formControlName="name" type="text" id="name"
+                class="form-control mt-1" placeholder="Nombre de la página">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Se necesitan permisos pages_manage_posts, pages_read_engagement y confirmar permisos
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Instagram Business'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access token de usuario</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">ID de cuenta de Instagram Business</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="ID de Cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Debe estar vinculada a una página de Facebook. Debe tener permisos concedidos: instagram_basic, pages_show_list, ads_management, etc.
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Linkedin'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access Token (OAuth)</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">ID de perfil o ID de empresa (Company ID)</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="ID de Cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="name">Nombre de perfil o empresa</label>
+                <input inputTrim formControlName="name" type="text" id="name"
+                class="form-control mt-1" placeholder="Nombre de perfil o empresa">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Debe tener permiso concedido para publicar en nombre del usuario/empresa.
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Youtube'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access token vía OAuth</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">ID del canal</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="ID del canal">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Debe hacerse con autorización OAuth 2.0 desde el cliente. Debe tener permisos: youtube.upload, youtube.force-ssl
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Wordpress'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="url">URL base del sitio web</label>
+                <input inputTrim formControlName="url" type="text" id="url"
+                class="form-control mt-1" placeholder="paginaweb.com">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="username">Usuario administrador (email / username)</label>
+                <input inputTrim formControlName="username" type="text" id="username"
+                class="form-control mt-1" placeholder="Usuario Administrador">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="password">Contraseña / Application Password</label>
+                <input inputTrim formControlName="password" type="text" id="password"
+                class="form-control mt-1" placeholder="Contraseña">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="endpoint">Endpoint de API REST</label>
+                <input inputTrim formControlName="endpoint" type="text" id="endpoint"
+                class="form-control mt-1" placeholder="Endpoint">
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Tiktok'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">ID de cuenta de TikTok Ads</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="ID de cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Token de autenticación vía TikTok for Business</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Token de autenticación">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                TikTok no permite publicación directa de contenido orgánico vía API en cuentas normales. Se usa solo para segmentación, no publicación orgánica.
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'X'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">Username o ID de cuenta</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="Username o ID de cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="api_key">API Key de la Cuenta</label>
+                <input inputTrim formControlName="api_key" type="text" id="api_key"
+                class="form-control mt-1" placeholder="API Key de la Cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="api_secret">Api Secret de la Cuenta</label>
+                <input inputTrim formControlName="api_secret" type="text" id="api_secret"
+                class="form-control mt-1" placeholder="Api Secret de la Cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access Token de la Cuenta</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token de la Cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_secret">Access Secret de la Cuenta</label>
+                <input inputTrim formControlName="access_secret" type="text" id="access_secret"
+                class="form-control mt-1" placeholder="Access Secret de la Cuenta">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                TikTok no permite publicación directa de contenido orgánico vía API en cuentas normales. Se usa solo para segmentación, no publicación orgánica.
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Google My Business'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="account_id">Client ID / Client Secret (Google OAuth)</label>
+                <input inputTrim formControlName="account_id" type="text" id="account_id"
+                class="form-control mt-1" placeholder="Client ID / Client Secret">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="access_token">Access Token de OAuth</label>
+                <input inputTrim formControlName="access_token" type="text" id="access_token"
+                class="form-control mt-1" placeholder="Access Token de OAuth">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="local_business_id">ID de audiencia (si se usa para Ads)</label>
+                <input inputTrim formControlName="local_business_id" type="text" id="local_business_id"
+                class="form-control mt-1" placeholder="ID del Local Business">
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <span class="note">
+                Debe tener permiso para business.manage y business.information
+              </span>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'WhatsApp Business'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="phone">Número de teléfono para recibir notificaciones</label>
+                <input inputTrim formControlName="phone" type="text" id="phone"
+                class="form-control mt-1" placeholder="+00 000 0000 000">
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" *ngIf="social && social.name == 'Gmail de Google'">
+        <form [formGroup]="socialForm" id="social-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
+                  <div class="icon">
+                    <i [class]="'fa fa-'+social.icon"></i>
+                  </div>
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ social.name }}</span>
+                    <br>
+                    <span class="company">
+                      Por favor, introduce los siguientes datos para conectar su cuenta
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <div class="float-group">
+                <label for="username">Correo Electrónico para recibir notificaciones</label>
+                <input inputTrim formControlName="username" type="text" id="username"
+                class="form-control mt-1" placeholder="correo@gmail.com">
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-3">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="connect(socialForm.value)">
+                Conectar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</ng-container>

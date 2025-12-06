@@ -1,0 +1,71 @@
+<ng-container>
+  <div class="row" *ngIf="user">
+    <div class="col-md-12">
+      <div class="card glass blue">
+        <div class="row" *ngIf="user">
+            <div class="col-md-12">
+              <div class="info">
+                  <span class="title">Hola, {{ user.name }}</span>
+                  <br>
+                  <span class="subtitle">Resumen de cuentas conectadas para publicación de contenido</span>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <ng-container *ngFor="let social of user.social_medias; let i = index">
+      <div class="col-md-3 mt-3" *ngIf="social.id < 9">
+        <div class="card centered social glass">
+          <!-- <img [src]="'assets/images/'+social.icon+'.png'"> -->
+           <div class="icon">
+             <i [class]="'fa fa-'+social.icon"></i>
+           </div>
+          <span class="social_media">{{social.name}}</span>
+          <span class="username">
+            {{social.pivot.connected ?
+            social.pivot.username || social.pivot.account_id :
+            'Red social no registrada'}}
+          </span>
+          <button class="btn" (click)="action(social)"
+          [ngClass]="{ 'publicar': social.pivot.connected,
+          'conectar': !social.pivot.connected }">
+            {{ social.pivot.connected ? 'Publicar' : 'Conectar' }}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <div class="col-md-12 mt-3">
+      <div class="card glass blue">
+        <div class="row">
+            <div class="col-md-12">
+              <div class="info">
+                  <span class="title">Notificaciones</span>
+                  <br>
+                  <span class="subtitle">Resumen de cuentas conectadas para recibir notificaciones</span>
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <ng-container *ngFor="let social of user.social_medias; let i = index">
+      <div class="col-md-3 mt-3" *ngIf="social.id >= 9">
+        <div class="card centered social glass">
+          <div class="icon">
+             <i [class]="'fab fa-'+social.icon"></i>
+           </div>
+          <span class="social_media">{{social.name}}</span>
+          <span class="username">
+            {{social.pivot.connected ?
+            social.pivot.username || social.pivot.name :
+            'Red social no registrada'}}
+          </span>
+          <button class="btn" (click)="action(social, true)"
+          [ngClass]="{ 'publicar': social.pivot.connected,
+          'conectar': !social.pivot.connected }">
+            {{ social.pivot.connected ? 'Editar' : 'Conectar' }}
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

@@ -1,0 +1,262 @@
+<ng-container>
+  <app-loader [loading]="loading"></app-loader>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card full glass">
+        <form [formGroup]="userForm" id="login-form">
+          <div class="row">
+            <div class="col-12 text-left">
+              <div class="row">
+                <div class="col-md-3 centered">
+                  <img src="assets/images/avatar.png">
+                </div>
+                <div class="col-md-8 centered">
+                  <div class="info">
+                    <span class="name">{{ user ? user.name : 'Nombre Completo'}}</span>
+                    <br>
+                    <span class="company">{{ user ? user.company : 'Nombre de la Compañía'}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 text-left mt-1">
+                <h4>Información Personal</h4>
+            </div>
+
+            <div class="col-12">
+              <div class="float-group">
+                <label for="name">Nombre Completo</label>
+                <input inputTrim formControlName="name" type="text" id="name"
+                class="form-control" placeholder="Nombre Completo" [(ngModel)]="user.name"
+                [ngClass]="{'error': name?.invalid && (name?.dirty || name?.touched)}">
+                <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="error-message">
+                  <span *ngIf="name?.errors?.['required']" class="errors">
+                    El nombre es requerido.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="float-group">
+                <label for="company">Nombre de la Compañia</label>
+                <input inputTrim formControlName="company" type="text" id="company"
+                class="form-control" placeholder="Nombre de la Compañia" [(ngModel)]="user.company">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="float-group">
+                <label for="country">Pais</label>
+                <input inputTrim formControlName="country" type="text" id="country"
+                class="form-control" placeholder="Elegir" [(ngModel)]="user.country">
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="float-group">
+                <label for="city">Ciudad</label>
+                <input inputTrim formControlName="city" type="text" id="city"
+                class="form-control" placeholder="Elegir" [(ngModel)]="user.city">
+              </div>
+            </div>
+
+            <div class="col-12 text-left mt-2">
+              <h4>Información de Contacto</h4>
+            </div>
+
+            <div class="col-12">
+              <div class="float-group">
+                <label for="email">Correo electrónico</label>
+                <input inputTrim formControlName="email" type="email" id="email"
+                class="form-control" placeholder="nombre@gmail.com" [(ngModel)]="user.email"
+                [ngClass]="{'error': email?.invalid && (email?.dirty || email?.touched)}">
+                <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error-message">
+                    <span *ngIf="email?.errors?.['required']" class="errors">
+                      El correo electrónico es requerido.
+                    </span>
+                    <span *ngIf="email?.errors?.['email']" class="errors">
+                      Por favor ingresa un correo electrónico válido.
+                    </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="float-group">
+                <label for="phone">Número de Teléfono</label>
+                <input inputTrim formControlName="phone" type="phone" id="phone"
+                class="form-control" placeholder="+00 000 000 0000" [(ngModel)]="user.phone"
+                (change)="validatePhone($event)"
+                [ngClass]="{'error': phone?.invalid && (phone?.dirty || phone?.touched) && !validPhone}">
+                <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="error-message">
+                  <span *ngIf="phone?.errors?.['required']" class="errors">
+                    El Número de Teléfono es requerido.
+                  </span>
+                  <span *ngIf="!validPhone && !phone?.errors?.['required']" class="errors">
+                    El Número de Teléfono no es correcto.
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 btn-container mt-2">
+              <button type="submit" class="btn btn-lg btn-block"
+              [disabled]="isSubmit" (click)="updateUserInfo()">
+                Guardar Informacion
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card glass">
+            <form [formGroup]="paymentForm" id="payment-form">
+              <div class="row">
+                <div class="col-12 text-left mt-1">
+                  <h4>Información de Pago</h4>
+                  <span class="company" *ngIf="user.active">
+                    Su cuenta tiene 00 días adicionales de plan activo
+                  </span>
+                  <span class="company" *ngIf="!user.active">
+                    No tiene un plan activo
+                  </span>
+                </div>
+
+                <div class="col-12">
+                  <div class="float-group">
+                    <label for="payment_method_id">Metodo de pago</label>
+                    <select formControlName="payment_method_id" id="payment_method_id"
+                    class="form-control">
+                      <option value="null" disabled selected>Seleccionar</option>
+                      <option value="1">Paypal</option>
+                      <option value="2">Zelle</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="float-group">
+                    <label for="reference">Referencia Bancaria</label>
+                    <input inputTrim formControlName="reference" type="text" id="reference"
+                    class="form-control" placeholder="Referencia">
+                  </div>
+                </div>
+
+                <p class="success" *ngIf="success"
+                >Pago registrado, espere la aprobacion.</p>
+
+                <div class="col-12 btn-container mt-2">
+                  <button type="submit" type="submit" class="btn btn-lg btn-block"
+                  [disabled]="isSubmit" (click)="storePayment()">
+                    Reportar Pago
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-12 mt-1">
+          <div class="card glass">
+
+            <form [formGroup]="passwordForm" id="password-form">
+              <div class="row">
+
+                <div class="col-12 text-left mt-1">
+                  <h4>Cambiar Contraseña</h4>
+                </div>
+
+                <div class="col-12">
+                  <div class="float-group">
+                    <label for="actual_password">Contraseña Actual</label>
+                      <input formControlName="actual_password" [type]="hidePass ? 'password' : 'text'"
+                      class="form-control" id="actual_password" placeholder="Contraseña Actual"
+                      [ngClass]="{'error': actual_password?.invalid && (actual_password?.dirty || actual_password?.touched)}">
+                      <span class="input-group-append">
+                          <button class="input-group-text show-password" (click)="showPassword()">
+                              <i *ngIf="hidePass" class="fa fa-eye"></i>
+                              <i *ngIf="!hidePass" class="fa fa-eye-slash"></i>
+                          </button>
+                      </span>
+                      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
+                        <span *ngIf="password?.errors?.['required']" class="errors">
+                          La contraseña es requerida.
+                        </span>
+                        <span *ngIf="password?.errors?.['minlength']" class="errors">
+                          La contraseña debe tener al menos 6 caracteres.
+                        </span>
+                        <span *ngIf="password?.errors?.['pattern']" class="errors">
+                          La contraseña debe contener letras y números.
+                        </span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="float-group">
+                    <label for="password">Nueva Contraseña</label>
+                      <input formControlName="password" [type]="hidePass ? 'password' : 'text'" class="form-control"
+                        id="password" placeholder="Nueva Contraseña"
+                      [ngClass]="{'error': password?.invalid && (password?.dirty || password?.touched)}">
+                      <span class="input-group-append">
+                          <button class="input-group-text show-password" (click)="showPassword()">
+                              <i *ngIf="hidePass" class="fa fa-eye"></i>
+                              <i *ngIf="!hidePass" class="fa fa-eye-slash"></i>
+                          </button>
+                      </span>
+                      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error-message">
+                        <span *ngIf="password?.errors?.['required']" class="errors">
+                          La contraseña es requerida.
+                        </span>
+                        <span *ngIf="password?.errors?.['minlength']" class="errors">
+                          La contraseña debe tener al menos 6 caracteres.
+                        </span>
+                        <span *ngIf="password?.errors?.['pattern']" class="errors">
+                          La contraseña debe contener letras y números.
+                        </span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <div class="float-group">
+                    <label for="confirm_password">Confirmar Nueva Contraseña</label>
+                      <input formControlName="confirm_password" [type]="hidePass ? 'password' : 'text'"
+                      class="form-control" id="confirm_password" placeholder="Confirmar Nueva Contraseña"
+                      [ngClass]="{'error': confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)}">
+                      <span class="input-group-append">
+                          <button class="input-group-text show-password" (click)="showPassword()">
+                              <i *ngIf="hidePass" class="fa fa-eye"></i>
+                              <i *ngIf="!hidePass" class="fa fa-eye-slash"></i>
+                          </button>
+                      </span>
+                      <span *ngIf="!validConfirmPassword" class="errors">
+                        Las contraseñas no coinciden.
+                      </span>
+                      <div
+                      *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="error-message">
+                        <span *ngIf="confirmPassword?.errors?.['required']" class="errors">
+                          Por favor confirma tu contraseña.
+                        </span>
+                      </div>
+                  </div>
+                </div>
+
+                <div class="col-12 btn-container mt-2">
+                  <button type="submit" type="submit" class="btn btn-lg btn-block"
+                  [disabled]="isSubmit" (click)="updateUserPassword()">
+                    Actualizar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

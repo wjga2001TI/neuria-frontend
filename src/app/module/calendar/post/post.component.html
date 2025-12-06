@@ -1,0 +1,65 @@
+<ng-container>
+  <app-loader [loading]="loading"></app-loader>
+  <div class="row" *ngIf="user">
+    <div class="col-md-12">
+      <div class="card blue">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="info">
+                <span class="title">Hola, {{user.name}}</span>
+                <br>
+                <span class="subtitle">Post programados para el día {{date}}</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <div class="card no-pd glass">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="blue border-l">Título de Post</th>
+              <th class="blue">Imagen / Video</th>
+              <th class="blue">Registro</th>
+              <th class="blue">Publicación</th>
+              <th class="blue">Estatus</th>
+              <th class="blue border-r">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let post of posts; let i = index" class="user">
+              <td>
+                <div class="flex in-row white">
+                  <img [src]="'assets/images/'+post.social_media.icon+'.png'" class="avatar">
+                  <div class="flex in-column ml-1">
+                    <span class="name">{{post.social_media.name}}</span>
+                    <span class="company">{{post.caption}}</span>
+                  </div>
+                </div>
+              </td>
+              <td class="centered">
+                <img [src]="post.images[0].url" class="image"> <span>+{{post.images.length - 1}}</span>
+              </td>
+              <td class="date">{{post.register_date}}</td>
+              <td class="date">{{post.post_date}}</td>
+              <td>
+                <span class="status" [ngClass]="{ 'pending': post.status.id == 1, 'success': post.status.id == 2, 'danger': post.status.id == 3 }"
+                >{{ post.status.name }}</span>
+              </td>
+              <td>
+                <i class="fa fa-trash space" (click)="deletePost(post)"
+                *ngIf="post.status.id == 1"></i>
+                <i class="fa fa-pencil space" (click)="updatePost(post)"
+                *ngIf="post.status.id == 1"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
