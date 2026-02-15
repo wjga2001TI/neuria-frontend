@@ -1,5 +1,5 @@
 <ng-container>
-  <div class="row">
+  <div class="row glass2 form-square" *ngIf="social">
     <div class="col-md-6 offset-md-3">
 
       <div class="card" *ngIf="social && social.name == 'Facebook'">
@@ -10,10 +10,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
-                  </div>
-                  <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -76,7 +73,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -131,7 +128,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -186,7 +183,7 @@
         </form>
       </div>
 
-      <div class="card" *ngIf="social && social.name == 'Youtube'">
+      <div class="card" *ngIf="social && social.name == 'YouTube'">
         <form [formGroup]="socialForm" id="social-form">
           <div class="row">
             <div class="col-12 text-left">
@@ -194,7 +191,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -241,7 +238,7 @@
         </form>
       </div>
 
-      <div class="card" *ngIf="social && social.name == 'Wordpress'">
+      <div class="card" *ngIf="social && social.name == 'WordPress'">
         <form [formGroup]="socialForm" id="social-form">
           <div class="row">
             <div class="col-12 text-left">
@@ -249,7 +246,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -288,14 +285,6 @@
               </div>
             </div>
 
-            <div class="col-12 mt-3">
-              <div class="float-group">
-                <label for="endpoint">Endpoint de API REST</label>
-                <input inputTrim formControlName="endpoint" type="text" id="endpoint"
-                class="form-control mt-1" placeholder="Endpoint">
-              </div>
-            </div>
-
             <div class="col-12 btn-container mt-3">
               <button type="submit" class="btn btn-lg btn-block"
               [disabled]="isSubmit" (click)="connect(socialForm.value)">
@@ -306,7 +295,7 @@
         </form>
       </div>
 
-      <div class="card" *ngIf="social && social.name == 'Tiktok'">
+      <div class="card" *ngIf="social && social.name == 'TikTok'">
         <form [formGroup]="socialForm" id="social-form">
           <div class="row">
             <div class="col-12 text-left">
@@ -314,7 +303,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -369,7 +358,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -448,7 +437,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -511,7 +500,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">
@@ -552,7 +541,7 @@
                 <div class="col-md-3 centered">
                   <!-- <img [src]="'assets/images/'+social.icon+'.png'" class="avatar"> -->
                   <div class="icon">
-                    <i [class]="'fa fa-'+social.icon"></i>
+                    <i [class]="'fa-brands text-white fa-'+social.icon"></i>
                   </div>
                 </div>
                 <div class="col-md-8 centered">

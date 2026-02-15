@@ -1,5 +1,5 @@
 <ng-container>
-  <div class="row">
+  <div class="row glass2 form-square" *ngIf="social">
     <div class="col-md-6 offset-md-3">
       <div class="card" *ngIf="social && social.name == 'Facebook'">
         <form [formGroup]="socialForm" id="social-form">

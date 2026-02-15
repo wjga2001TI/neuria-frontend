@@ -2,11 +2,17 @@
   background-color: #FFFFFF;
   border-radius: 12px;
   width: 100%;
-  min-height: 300px;
+  margin-bottom: 20px;
 }
 
 .full{
-  height: 100%;
+  height: calc(100vh - 40px) !important;
+  overflow-y: scroll;
+}
+
+.mid{
+  height: calc(52.5vh - 40px) !important;
+  overflow-y: scroll;
 }
 
 .pd-2{
@@ -17,20 +23,20 @@
 #payment-form,
 #password-form{
   width: 100%;
-  padding: 24px 16px 24px 16px;
+  padding: 50px 20px;
 }
 
 #login-form .row,
 #payment-form .row,
 #password-form .row{
-  gap: 7px;
+  gap: 20px;
 }
 
 #login-form h4,
 #payment-form h4,
-#password-form{
-  font-size: 20px;
-  font-weight: bolder;
+#password-form h4{
+  font-size: 20px !important;
+  font-weight: 600;
   color: #183A9C;
 }
 
@@ -44,7 +50,7 @@
 .float-group label{
   font-size: 14px;
   color: #010101;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .float-group{
@@ -77,12 +83,12 @@ select::placeholder{
 
 div > .btn{
   height: 44px;
-  min-width: 150px;
+  min-width: 100%;
   background-color: #EF4E00;
   color: #FFFFFF;
   padding: 6px 12px;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .input-group-append{
@@ -126,10 +132,9 @@ input.error{
 }
 
 .avatar{
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background-color: #3A86CC;
 }
 
 .info{

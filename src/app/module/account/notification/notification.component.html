@@ -4,6 +4,7 @@
       <div class="card blue">
         <div class="row">
             <div class="col-md-12">
+              <img src="./../../../../assets/images/header-icon.png" class="icon-header">
               <div class="info">
                   <span class="title">Hola, {{user.name}}</span>
                   <br>
@@ -17,17 +18,17 @@
       <div class="card glass">
         <div class="row">
           <div class="col-md-1 flex centered">
-            <i class="fa"
+            <i class="status fa-solid"
             [ngClass]="{
-              'fa-check': i % 2 == 0,
-              'fa-warning': i % 2 !== 0,
+              'fa-circle-check': i % 2 == 0,
+              'fa-circle-exclamation': i % 2 !== 0,
               'success': i % 2 == 0,
               'warning': i % 2 !== 0
             }"
             ></i>
             <div class="icon">
-            <i [class]="'fa fa-instagram ml-2'"></i>
-          </div>
+              <i [class]="'fa fa-instagram ml-2'"></i>
+            </div>
           </div>
             <div class="col-md-11">
               <div class="info">

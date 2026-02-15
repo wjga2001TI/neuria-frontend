@@ -1,9 +1,10 @@
 <ng-container>
-  <div class="row" *ngIf="user">
+  <div class="row scroll g-3" *ngIf="user">
     <div class="col-md-12">
       <div class="card glass blue">
         <div class="row" *ngIf="user">
             <div class="col-md-12">
+              <img src="./../../../../assets/images/header-icon.png" class="icon-header">
               <div class="info">
                   <span class="title">Hola, {{ user.name }}</span>
                   <br>
@@ -18,7 +19,7 @@
         <div class="card centered social glass">
           <!-- <img [src]="'assets/images/'+social.icon+'.png'"> -->
            <div class="icon">
-             <i [class]="'fa fa-'+social.icon"></i>
+             <i [class]="'fa-brands fa-'+social.icon+' text-white'"></i>
            </div>
           <span class="social_media">{{social.name}}</span>
           <span class="username">
@@ -38,11 +39,12 @@
       <div class="card glass blue">
         <div class="row">
             <div class="col-md-12">
+              <img src="./../../../../assets/images/header-icon.png" class="icon-header">
               <div class="info">
-                  <span class="title">Notificaciones</span>
-                  <br>
-                  <span class="subtitle">Resumen de cuentas conectadas para recibir notificaciones</span>
-                </div>
+                <span class="title">Notificaciones</span>
+                <br>
+                <span class="subtitle">Resumen de cuentas conectadas para recibir notificaciones</span>
+              </div>
             </div>
           </div>
       </div>
@@ -51,7 +53,7 @@
       <div class="col-md-3 mt-3" *ngIf="social.id >= 9">
         <div class="card centered social glass">
           <div class="icon">
-             <i [class]="'fab fa-'+social.icon"></i>
+             <i [class]="'fa-brands fa-'+social.icon+' text-white'"></i>
            </div>
           <span class="social_media">{{social.name}}</span>
           <span class="username">

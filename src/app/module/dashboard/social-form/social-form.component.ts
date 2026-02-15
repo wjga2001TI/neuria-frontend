@@ -30,7 +30,6 @@ export class SocialFormComponent implements OnInit{
       'url': '',
       'username': '',
       'password': '',
-      'endpoint': '',
       'phone': '',
       'api_key': ''
     })
@@ -43,7 +42,6 @@ export class SocialFormComponent implements OnInit{
   get url() { return this.socialForm.get('url'); }
   get username() { return this.socialForm.get('username'); }
   get password() { return this.socialForm.get('password'); }
-  get endpoint() { return this.socialForm.get('endpoint'); }
   get phone() { return this.socialForm.get('phone'); }
   get api_key() { return this.socialForm.get('api_key'); }
   get api_secret() { return this.socialForm.get('api_secret'); }

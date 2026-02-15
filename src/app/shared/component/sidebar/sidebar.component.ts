@@ -38,4 +38,15 @@ export class SidebarComponent implements OnInit{
       this.loading = false
     })
   }
+
+  toggleClass(e: any){
+    let target = e.target.classList.contains('title') || e.target.classList.contains('fa')
+    ? e.target.parentElement : e.target
+    if(!target.classList.contains('active')){
+      document.querySelectorAll('.active').forEach(el => {
+        el.classList.remove('active')
+      })
+      target.classList.add('active')
+    }
+  }
 }

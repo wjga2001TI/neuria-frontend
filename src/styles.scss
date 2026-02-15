@@ -10,6 +10,34 @@
   font-style: normal;
 }
 
+*::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px !important;
+}
+
+*::-webkit-scrollbar:vertical {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-button:increment,
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+*::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #EF4E00;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
 /* Aplicación global */
 body {
   font-family: 'Nunito', sans-serif;
@@ -21,6 +49,19 @@ body {
  -webkit-backdrop-filter: blur(5px) !important;
  backdrop-filter: blur(5px) !important;
  border: 2px solid rgb(255, 255, 255) !important;
+}
+.glass2{
+  -webkit-backdrop-filter: blur(5px) !important;
+  backdrop-filter: blur(5px) !important;
+  border: 2px solid rgb(255, 255, 255) !important;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+  radial-gradient(99.95% 100% at 100% 100%, rgba(24, 58, 156, 0.2) 0%, rgba(24, 58, 156, 0) 60%, rgba(24, 58, 156, 0.2) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+}
+.form-square{
+  height: calc(100vh - 40px);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .blue{
@@ -34,8 +75,7 @@ body {
 }
 
 form .logo{
-  width: 270px;
-  height: 50px;
+  width: 100%;
 }
 
 .wrapper{
@@ -77,13 +117,15 @@ form .logo{
 
 .calendar-header {
     border-bottom: 2px solid #D8E0F0;
+    height: 45px !important;
 }
 
 .calendar-header div {
   text-align: left;
   border-right: 2px solid #D8E0F0;
   font-weight: bold;
-  font-size: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
   margin-left: 10px;
 }
 
@@ -131,4 +173,16 @@ form .logo{
 /* Estilo para días con publicaciones */
 .day.has-event {
     background-color: #e3f2fd;
+}
+
+img.icon-header{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px !important;
+  width: 110px !important;
+}
+
+.card.blue .info{
+  margin-left: 120px;
 }

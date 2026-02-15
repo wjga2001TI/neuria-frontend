@@ -1,5 +1,5 @@
 .scroll{
-  max-height: 650px !important;
+  max-height: calc(100vh - 40px);
   overflow-y: scroll;
 }
 
@@ -7,8 +7,13 @@
   background-color: #FFFFFF;
   border-radius: 12px;
   width: 100%;
-  padding: 20px;
+  padding: 12px 24px;
   gap: 5px;
+}
+
+.card.blue{
+  height: 100px;
+  overflow: hidden;
 }
 
 .centered{
@@ -17,13 +22,21 @@
   justify-content: center;
 }
 
-.title{
+.card.blue .title{
   font-size: 18px;
-  font-weight: bold;
+}
+
+.title{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.card.blue .subtitle{
+  font-size: 14px;
 }
 
 .subtitle{
-  font-size: 14px;
+  font-size: 12px;
   color: #272727;
   font-weight: 400;
   margin: 0;
@@ -61,4 +74,7 @@
 .icon{
   font-size: 28px;
   color: #183A9C;
+}
+.status{
+  font-size: 20px;
 }

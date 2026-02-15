@@ -38,15 +38,17 @@ export class RegisterComponent implements OnInit{
       'password': ['', [Validators.required,Validators.minLength(6)]],
       'confirm_password': ['', Validators.required]
     });
-    var phone: any = document.querySelector('#phone')
-    intlTelInput(phone, {})
-    let countries = document.querySelectorAll('.iti__country')
-    countries.forEach((country) => {
-      country.addEventListener('click', function(e: any){
-        let code = e.target.getAttribute('data-dial-code')
-        phone.value = `+${code}`
+    setTimeout(() => {
+      var phone: any = document.querySelector('#phone')
+      intlTelInput(phone, {})
+      let countries = document.querySelectorAll('.iti__country')
+      countries.forEach((country) => {
+        country.addEventListener('click', function(e: any){
+          let code = e.target.getAttribute('data-dial-code')
+          phone.value = `+${code}`
+        })
       })
-    })
+    }, 500);
   }
 
   validatePhone(e: any) {

@@ -38,7 +38,7 @@
 .float-group label{
   font-size: 14px;
   color: #010101;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 input{
@@ -66,4 +66,7 @@ i.fa{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.icon i{
+  font-size: 40px;
 }

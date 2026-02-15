@@ -1,10 +1,11 @@
 <ng-container>
   <app-loader [loading]="loading"></app-loader>
-  <div class="row">
+  <div class="row scroll">
     <div class="col-md-12">
       <div class="card blue" *ngIf="user">
         <div class="row">
             <div class="col-md-12">
+              <img src="./../../../../assets/images/header-icon.png" class="icon-header">
               <div class="info">
                   <span class="title">Hola, {{user.name}}</span>
                   <br>
@@ -13,44 +14,44 @@
             </div>
           </div>
       </div>
-    </div>
-  </div>
-  <div class="calendar-container mt-3">
-    <div class="controls">
-        <div class="month-selector">
-            <button id="prev-month">&lt; Mes anterior</button>
-            <h2 id="current-month">Enero 2023</h2>
-            <button id="next-month">Mes siguiente &gt;</button>
+      <div class="calendar-container mt-3">
+        <div class="controls">
+            <div class="month-selector">
+                <button id="prev-month">&lt; Mes anterior</button>
+                <h2 id="current-month">Enero 2023</h2>
+                <button id="next-month">Mes siguiente &gt;</button>
+            </div>
+            <select id="month-select">
+                <option value="0">Enero</option>
+                <option value="1">Febrero</option>
+                <option value="2">Marzo</option>
+                <option value="3">Abril</option>
+                <option value="4">Mayo</option>
+                <option value="5">Junio</option>
+                <option value="6">Julio</option>
+                <option value="7">Agosto</option>
+                <option value="8">Septiembre</option>
+                <option value="9">Octubre</option>
+                <option value="10">Noviembre</option>
+                <option value="11">Diciembre</option>
+            </select>
         </div>
-        <select id="month-select">
-            <option value="0">Enero</option>
-            <option value="1">Febrero</option>
-            <option value="2">Marzo</option>
-            <option value="3">Abril</option>
-            <option value="4">Mayo</option>
-            <option value="5">Junio</option>
-            <option value="6">Julio</option>
-            <option value="7">Agosto</option>
-            <option value="8">Septiembre</option>
-            <option value="9">Octubre</option>
-            <option value="10">Noviembre</option>
-            <option value="11">Diciembre</option>
-        </select>
-    </div>
 
-    <div class="calendar">
-        <div class="calendar-header">
-            <div>LUNES</div>
-            <div>MARTES</div>
-            <div>MIÉRCOLES</div>
-            <div>JUEVES</div>
-            <div>VIERNES</div>
-            <div>SÁBADO</div>
-            <div>DOMINGO</div>
+        <div class="calendar">
+            <div class="calendar-header">
+                <div>LUNES</div>
+                <div>MARTES</div>
+                <div>MIÉRCOLES</div>
+                <div>JUEVES</div>
+                <div>VIERNES</div>
+                <div>SÁBADO</div>
+                <div>DOMINGO</div>
+            </div>
+            <div class="calendar-grid" id="calendar-days">
+                <!-- Los días se generarán con JavaScript -->
+            </div>
         </div>
-        <div class="calendar-grid" id="calendar-days">
-            <!-- Los días se generarán con JavaScript -->
-        </div>
+      </div>
     </div>
   </div>
 </ng-container>

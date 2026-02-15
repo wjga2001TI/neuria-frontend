@@ -36,6 +36,7 @@ export class MainLayoutComponent implements OnInit{
       e.urlAfterRedirects.includes('notification') ||
       e.urlAfterRedirects.includes('account')){
         this.scroll = false
+        this.centered = false
       }else{
         this.centered = false
         this.scroll = true
