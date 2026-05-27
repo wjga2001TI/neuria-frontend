@@ -20,11 +20,10 @@
             "outputPath": "dist/neuuria",
             "index": "src/index.html",
             "externalDependencies": [
-              "assets/lib/phone-number-validation/build/css/intlTelInput.css",
-              "assets/lib/phone-number-validation/build/css/intlTelInput.min.css",
-              "assets/lib/phone-number-validation/build/css/demo.css",
-              "assets/lib/phone-number-validation/build/js/intlTelInput.js",
-              "assets/lib/phone-number-validation/build/js/intlTelInput.min.js"
+              "assets/lib/phone-number-validator/build/css/intlTelInput.css",
+              "assets/lib/phone-number-validator/build/css/intlTelInput.min.css",
+              "assets/lib/phone-number-validator/build/css/demo.css",
+              "assets/lib/phone-number-validator/build/js/intlTelInput.min.js"
             ],
             "browser": "src/main.ts",
             "polyfills": [
@@ -39,15 +38,14 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
-              "assets/lib/phone-number-validation/build/css/intlTelInput.css",
-              "assets/lib/phone-number-validation/build/css/intlTelInput.min.css",
-              "assets/lib/phone-number-validation/build/css/demo.css"
+              "lib/phone-number-validator/build/css/intlTelInput.css",
+              "lib/phone-number-validator/build/css/intlTelInput.min.css",
+              "lib/phone-number-validator/build/css/demo.css"
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "assets/lib/phone-number-validation/build/js/intlTelInput.js",
-              "assets/lib/phone-number-validation/build/js/intlTelInput.min.js"
+              "lib/phone-number-validator/build/js/intlTelInput.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -114,7 +112,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/lib/phone-number-validation/build/js/intlTelInput.min.js"
+              "src/assets/lib/phone-number-validator/build/js/intlTelInput.min.js"
             ]
           }
         }
