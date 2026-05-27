@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'app/core/service/authentication.service';
 import { PaymentService } from 'app/core/service/payment.service';
 // @ts-ignore
-import intlTelInput from 'phone-number-validator/build/js/intlTelInput.min.js';
+import intlTelInput from 'phone-number-validator/js/intlTelInput.min.js';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
 
 @Component({

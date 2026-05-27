@@ -20,10 +20,10 @@
             "outputPath": "dist/neuuria",
             "index": "src/index.html",
             "externalDependencies": [
-              "assets/phone-number-validator/build/css/intlTelInput.css",
-              "assets/phone-number-validator/build/css/intlTelInput.min.css",
-              "assets/phone-number-validator/build/css/demo.css",
-              "assets/phone-number-validator/build/js/intlTelInput.min.js"
+              "src/phone-number-validator/css/intlTelInput.css",
+              "src/phone-number-validator/css/intlTelInput.min.css",
+              "src/phone-number-validator/css/demo.css",
+              "src/phone-number-validator/js/intlTelInput.min.js"
             ],
             "browser": "src/main.ts",
             "polyfills": [
@@ -38,14 +38,14 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
-              "phone-number-validator/build/css/intlTelInput.css",
-              "phone-number-validator/build/css/intlTelInput.min.css",
-              "phone-number-validator/build/css/demo.css"
+              "src/phone-number-validator/css/intlTelInput.css",
+              "src/phone-number-validator/css/intlTelInput.min.css",
+              "src/phone-number-validator/css/demo.css"
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "phone-number-validator/build/js/intlTelInput.min.js"
+              "src/phone-number-validator/js/intlTelInput.min.js"
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -112,7 +112,7 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "src/assets/phone-number-validator/build/js/intlTelInput.min.js"
+              "src/phone-number-validator/js/intlTelInput.min.js"
             ]
           }
         }
