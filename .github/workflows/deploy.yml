@@ -1,0 +1,46 @@
+name: Compilar y Desplegar Angular a cPanel
+
+on:
+  push:
+    branches:
+      - master # Se activará cada vez que hagas push a master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Descargar el código del repositorio
+    - name: checkout del codigo
+      uses: actions/checkout@v4
+
+    # 2. Instalar Node.js en el servidor de GitHub
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22.16.0' # Asegúrate de que coincida con tu versión local de Angular
+        cache: 'npm'
+
+    # 3. Instalar dependencias del proyecto
+    - name: Instalar dependencias
+      run: npm ci --legacy-peer-deps
+
+    # 4. Compilar la aplicación para producción
+    - name: Compilar aplicacion Angular
+      run: npm run build -- --configuration=production
+
+    # 5. Subir los archivos compilados a cPanel mediante FTP tradicional (evitando bloqueos de puertos)
+    - name: Desplegar archivos por FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      with:
+        server: ${{ secrets.CPANEL_HOST }} # Aquí va la IP numérica del servidor
+        username: ${{ secrets.CPANEL_USER }} # deploy@apuestasni.com
+        password: ${{ secrets.CPANEL_FTP_PASSWORD }} # La contraseña del FTP
+        port: 21 # El puerto FTP estándar que todos los hostings tienen abierto
+        local-dir: ./dist/neuuria/browser/ # Revisa si en tu proyecto es con /browser/ al final o solo ./dist/posnet/
+        server-dir: ./public_html/ # Como la cuenta FTP ya apunta a public_html/posnet/, subimos la raíz aquí
+
+
+#72.61.75.96
+#admin_dev_ftp
+#t8wBylAhke6ued64

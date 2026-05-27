@@ -8,7 +8,7 @@ import { AuthenticationService } from 'app/core/service/authentication.service';
 })
 export class SidebarComponent implements OnInit{
 
-  macaw = 'assets/images/logo.png'
+  neuuria = 'assets/images/logo.png'
   menu = 'assets/images/menu.png'
 
   user: any = null
